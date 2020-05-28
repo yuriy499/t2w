@@ -1,0 +1,26 @@
+ControlSocket /run/tor/control
+ControlSocketsGroupWritable 1
+CookieAuthentication 1
+HashedControlPassword 16:282F7445402FD657604613C66E36507DD40383AA0D6C5335672DE7F976
+SOCKSPort 9050
+ControlPort 9051
+Log notice file /var/log/tor/notices.log
+NumCPUs 2
+User toranon
+DataDirectory /var/lib/tor
+Sandbox 1
+NoExec 1
+HardwareAccel 1
+EnforceDistinctSubnets 1
+ClientRejectInternalAddresses 1
+LearnCircuitBuildTimeout 0
+CircuitBuildTimeout 40
+CircuitStreamTimeout 10
+CloseHSClientCircuitsImmediatelyOnTimeout 1
+CloseHSServiceRendCircuitsImmediatelyOnTimeout 1
+MaxCircuitDirtiness 10800
+MaxClientCircuitsPending 1024
+SocksTimeout 180
+Tor2webMode 1
+FetchDirInfoEarly 1
+FetchDirInfoExtraEarly 1
