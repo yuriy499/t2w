@@ -23,12 +23,10 @@ RUN cd /etc/tor && mv torrc{,.bak}
 COPY torrc /etc/tor
 RUN chmod 644 /etc/tor/torrc
 
-RUN mkdir /var/www/dehydrated && echo "$DOMAIN *.$DOMAIN" > /etc/dehydrated/domains.txt 
-
-COPY dehydrated /etc/dehydrated/config
-
+# do this manually to get ssl certificate
+#RUN mkdir /var/www/dehydrated && echo "$DOMAIN *.$DOMAIN" > /etc/dehydrated/domains.txt 
+#COPY dehydrated /etc/dehydrated/config
 #RUN /usr/bin/dehydrated --register --accept-terms && /usr/bin/dehydrated --full-chain --cron
-
 
 COPY control.sh /root
 
@@ -37,7 +35,7 @@ COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh /root/control.sh
 
 
-RUN rm -rf $(mktemp -d) && yum remove -y git gcc gcc-c++ epel-release
+RUN yum remove -y git gcc gcc-c++ epel-release
 
 WORKDIR /
 
